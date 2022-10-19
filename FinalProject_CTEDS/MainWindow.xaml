@@ -1,0 +1,161 @@
+﻿<Window x:Class="FinalProject_CTEDS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinalProject_CTEDS"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="980"
+        ResizeMode="NoResize">
+
+    <Border Background="#272537"
+            CornerRadius="0">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Bloco de Notas"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Foreground="White"
+                   FontSize="22"/>
+
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                          Grid.Row="1">
+                <StackPanel x:Name="stackName" 
+                Grid.Row="1"
+                CanVerticallyScroll="True"
+                
+                >
+                    <Separator/>
+                    <TextBlock Text="Anotações:"
+                           FontSize="18"
+                           Foreground="White"
+                           Margin="10 0"/>
+
+                </StackPanel>
+            </ScrollViewer>
+            
+
+            <Grid Grid.Row="1"
+                  Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+
+                <TextBox x:Name="txtTitle"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     FontSize="18"
+                     VerticalContentAlignment="Center"
+                     Text=""/>
+
+                <DockPanel Grid.Column="0"
+                           Grid.Row="1">
+                    <ToolBar DockPanel.Dock="Top" Background="LightBlue">
+                        <Separator />
+                        <ToggleButton Command="EditingCommands.ToggleBold" Name="btnBold" Content="Bold">
+                        </ToggleButton>
+                        <ToggleButton Command="EditingCommands.ToggleItalic" Name="btnItalic" Content="Italic">
+                        </ToggleButton>
+                        <ToggleButton Command="EditingCommands.ToggleUnderline" Name="btnUnderline" Content="Underline">
+                        </ToggleButton>
+                        <Separator />
+                        <ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="cmbFontFamily_SelectionChanged" />
+                        <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" Foreground="Black" />
+                    </ToolBar>
+                    <RichTextBox Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged" />
+                </DockPanel>
+
+                
+                
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="250"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="txtId"
+                         Grid.Column="0"
+                         FontSize="14"
+                         Text="ID:"
+                         IsReadOnly="True"
+                         Background="LightGray"
+                         VerticalContentAlignment="Center"/>
+                    <TextBox x:Name="txtAuthor"
+                         Grid.Column="1"
+                         FontSize="14"
+                         Text="Autor: "
+                         IsReadOnly="True"
+                         Background="LightGray"
+                         VerticalContentAlignment="Center"/>
+                    <TextBox x:Name="txtDate"
+                         Grid.Column="2"
+                         FontSize="14"
+                         Text="Última Modificação:"
+                         IsReadOnly="True"
+                         Background="LightGray"
+                         VerticalContentAlignment="Center"/>
+                </Grid>
+                
+
+
+            </Grid>
+
+            <Grid Grid.Row="0"
+                  Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="newButton"
+                        Grid.Column="0"
+                        Content="Novo"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        Background="LightSteelBlue"
+                        Margin="80 10"
+                        Visibility="Visible"
+                        Click="newButton_Click"/>
+                        
+                <Button x:Name="saveButton"
+                        Grid.Column="1"
+                        Content="Salvar"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        Background="LightSteelBlue"
+                        Margin="80 10"
+                        Click="saveButton_Click"/>
+                <Button x:Name="removeButton"
+                        Grid.Column="2"
+                        Content="Excluir"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        Background="LightSteelBlue"
+                        Margin="80 10"
+                        Click="removeButton_Click"/>
+            </Grid>
+            
+
+        </Grid>
+
+
+
+    </Border>
+    
+    
+    
+</Window>
+
